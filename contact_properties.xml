@@ -3,7 +3,7 @@
      vc = capture velocity (velocity where e=e_max)
      vp = plastic velocity (smallest v where e=e_min) > vc
      Assume real COR=1 when v=0.
-     e_min = given minimum COR, at v >= vp
+     e_min = given minimum COR, at v >= vp (a.k.a. plastic_coef_restitution)
      d = slope = (1-e_min)/vp
      OR, e_min = 1 - d*vp
      e_max = maximum COR = 1-d*vc, reached at v=vc
@@ -20,10 +20,10 @@
 <ContactProps>
     <stiffness> 10e8 </stiffness>
     <!-- dissipation coefficient to be used in compliant contact;
-    if not given it is (1-min_cor)/max_elastic_velocity -->
+    if not given it is (1-min_cor)/plastic_impact_velocity -->
     <dissipation> 0.5 </dissipation>
     <!-- this is the COR to be used at high velocities for rigid
-    impacts; if not given it is 1 - d*max_elastic_velocity -->
+    impacts; if not given it is 1 - d*plastic_impact_velocity -->
     <plastic_coef_restitution> .5 </plastic_coef_restitution>
     <!-- smallest impact velocity at which min COR is reached; set
     to zero if you want the min COR always to be used -->
