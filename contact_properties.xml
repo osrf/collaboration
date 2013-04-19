@@ -24,10 +24,10 @@
     <dissipation> 0.5 </dissipation>
     <!-- this is the COR to be used at high velocities for rigid
     impacts; if not given it is 1 - d*max_elastic_velocity -->
-    <min_coef_restitution> .5 </min_coef_restitution>
+    <plastic_coef_restitution> .5 </plastic_coef_restitution>
     <!-- smallest impact velocity at which min COR is reached; set
     to zero if you want the min COR always to be used -->
-    <max_elastic_impact_velocity> .5 </max_elastic_impact_velocity>
+    <plastic_impact_velocity> .5 </plastic_impact_velocity>
 
     <static_friction>   0.9 </static_friction>
     <dynamic_friction>  0.9 </dynamic_friction>
