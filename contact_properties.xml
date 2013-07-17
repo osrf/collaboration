@@ -17,7 +17,7 @@
      Combining rule e = 0,               e1==e2==0
                       = 2*e1*e2/(e1+e2), otherwise
 -->
-<ContactProps>
+<contact>
     <stiffness> 10e8 </stiffness>
     <!-- dissipation coefficient to be used in compliant contact;
     if not given it is (1-min_cor)/plastic_impact_velocity -->
@@ -45,5 +45,5 @@
     Combining rule: use larger velocity -->
     <override_stiction_transition_velocity> .001 
     </override_stiction_transition_velocity>
-</ContactProps>
+</contact>
 
