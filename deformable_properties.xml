@@ -19,12 +19,16 @@ Karen's proposal
 
 - John Notes
 <collision>
+        <!-- Steve: we could also support simple shape types if we generate meshes automatically -->
         <geometry>
             <mesh>
                 <path>C:/meshes/foot.obj</path>
             </mesh>
         </geometry>
         <surface>
+                <!-- soft contact pamameters based on paper
+        http://www.cc.gatech.edu/graphics/projects/Sumit/homepage/papers/sigasia11/jain_softcontacts_siga11.pdf
+                -->
                 <soft_contact>
                         <!-- kv in paper -->
                         <bone_attachment>100</bone_attachment>
