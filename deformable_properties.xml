@@ -30,7 +30,9 @@ Karen's proposal
                         <bone_attachment>100</bone_attachment>
                         <!-- ke in paper (can we make this parameter invariant to number of neighboring nodes? -->
                         <stiffness>100</stiffness>
+                        <!-- damping of point velocity in body frame. -->
                         <damping>10</damping>
+                        <!-- percent of mass to be distributed among deformable nodes -->
                         <flesh_mass_percentage>5</flesh_mass_percentage>
                 </soft_contact>
         </surface>
