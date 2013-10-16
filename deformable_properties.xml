@@ -1,0 +1,37 @@
+Karen's proposal
+
+<collision>
+        <surface>
+                <soft_contact>
+                        <geometry>
+                                <mesh>
+                                        <path>C:/meshes/foot.obj</path>
+                                </mesh>
+                        </geometry>
+                        <bone_attachment>100</bone_attachment>
+                        <stiffness>100</stiffness>
+                        <damping>10</damping>
+                        <flesh_mass_percentage>5</flesh_mass_percentage>
+                </soft_contact>
+        </surface>
+</collision>
+
+
+- John Notes
+<collision>
+        <geometry>
+            <mesh>
+                <path>C:/meshes/foot.obj</path>
+            </mesh>
+        </geometry>
+        <surface>
+                <soft_contact>
+                        <!-- kv in paper -->
+                        <bone_attachment>100</bone_attachment>
+                        <!-- ke in paper (can we make this parameter invariant to number of neighboring nodes? -->
+                        <stiffness>100</stiffness>
+                        <damping>10</damping>
+                        <flesh_mass_percentage>5</flesh_mass_percentage>
+                </soft_contact>
+        </surface>
+</collision>
