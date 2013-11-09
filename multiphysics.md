@@ -20,8 +20,7 @@
     Tutorials in the [examples section](somewhere below) below will attempt to demonstrate differences in simulation results for different physics engines under different scenarios.
     * Emphasize existing features in gazebo outside of physics, e.g. camera, laser sensors, plugin api, ros integration.
 
- * What criteria to consider when choosing a physics engine?  
- (highlight a few corner use cases where certain needs are met by certain physics engines)
+ * What criteria to consider when choosing a physics engine? (highlight a few corner use cases where certain needs are met by certain physics engines)
     * Highly accurate:
         * Designing and tuning controllers.
         * Model validation.
