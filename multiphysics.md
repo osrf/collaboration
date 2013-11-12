@@ -92,12 +92,12 @@ We'll highlight differences between each of the physics engines by components.
 Describe integrators used or offered by each physics engine.
 
  * Bullet
- * DART
+ * DART supports first-order explicit Euler and RK4.
  * ODE
     * First order semi-implicit (semi-explicit) Euler.  The formulation as described in Anitescu Potra paper is a first order...
     * [Integrate velocity to position](https://bitbucket.org/osrf/gazebo/src/a676255484971eb823e037492a76fff1cfb66436/deps/opende/src/util.cpp?at=default#cl-274)
     * [Integrate force to velocity](https://bitbucket.org/osrf/gazebo/src/a676255484971eb823e037492a76fff1cfb66436/deps/opende/src/quickstep.cpp?at=default#cl-1964)
- * Simbody [integrators](https://github.com/simbody/simbody/tree/simbody-3.3/SimTKmath/Integrators/include/simmath):
+ * Simbody supports following [integrators](https://github.com/simbody/simbody/tree/simbody-3.3/SimTKmath/Integrators/include/simmath):
     * SimTK::RungeKuttaMersonIntegrator(system)
     * SimTK::RungeKutta3Integrator(system);
     * SimTK::RungeKutta2Integrator(system);
