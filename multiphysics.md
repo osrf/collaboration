@@ -104,23 +104,12 @@ Describe integrators used or offered by each physics engine.
 ## Performance
 There is not a universally objective way of quantifying performances for different
 physics engines yet, but for specific use case such as the DRCSim, we have the following benchmark results.
-Note that these benchmark results are preliminary, as we continue on integration and optimization
-of each engine, the results may change.
+Note performance results are volatile as they are sensitive to many factors outside of algorithm performance, things like software implementation, collision detection, adjustable physics parameters can greatly change the outcome of existing benchmarks.
 
- * Bullet - contacts are still unstable right now.
- * DART - no error correction.
- * ODE - small overhead at 1kHz (typical for robotics applications with real-time effort controllers).
- * Simbody - slow but accurate.  rigid body contact will speed this up greatly.
-
-
-
-
-
-
-
-
-
-
+ * Bullet - 
+ * DART - 
+ * ODE - 
+ * Simbody - 
 
 
 
