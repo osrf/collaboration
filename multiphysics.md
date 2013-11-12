@@ -2,11 +2,11 @@
 
 ## FAQ / Overview
 
-  * How are multiple physics engines supported in Gazebo?
+* How are multiple physics engines supported in Gazebo?
     * Several forward dynamics engines have been integrated as library dependencies by Gazebo.  Gazebo provides users with a unified modeling interface that transparently supports access to the physics and dynamics updates from each physics engine.  This is made possible by Gazebo's core physics API.
     * As of Gazebo-2.1, a user can pass in a commandline argument to tell gazebo which engine to use.  The ability to switch between different engines dynamically will be added in subsequent Gazebo release.
 
-  * Why is support for multiple physics engines useful?
+* Why is support for multiple physics engines useful?
     * There lack a research platform where drastically different engines are supported and tested thoroughly.  Testing and maintenance is a major effort, and requires a top down approach to make sure everything is treated fairly.  Sometimes custom attention is paid to a particular aspect of a physics engine because of its capabilities and differences with other physics engines, making comparison difficult.  For example, error measurement can be hard to compare differently between maximal and reduced coordinate system solvers, the problem varies a lot based on many factors such as requirements in performance, accuracy or simplifying assumptions imposed on the model.
     * A unified interface to multiple physics engines also provides a level playing field for comparing accuracy and performance of the physics engines.  These comparisons may help the upstream developers of the engines to identify bugs in their code or places where computational speed can be improved. It can also be used to compare algorithms for dynamic simulation.
     * Some solvers have restrictions on the underlying model structure.  For example, Featherstone solvers require simulated models to have tree structured kinematics, and contacts or kinematic loop closures need to be modeled with LCP constraints.
@@ -19,8 +19,7 @@
     * Fine tuning individual simulation scenarios requires insight to how the system is being modeled and the specific type of solver used.
     Tutorials in the [examples section](somewhere below) below will attempt to demonstrate differences in simulation results for different physics engines under different scenarios.
     * Emphasize existing features in gazebo outside of physics, e.g. camera, laser sensors, plugin api, ros integration.
-
- * What criteria to consider when choosing a physics engine? (highlight a few corner use cases where certain needs are met by certain physics engines)
+* What criteria to consider when choosing a physics engine? (highlight a few corner use cases where certain needs are met by certain physics engines)
     * Highly accurate:
         * Designing and tuning controllers.
         * Model validation.
