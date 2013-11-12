@@ -56,15 +56,7 @@ In the pipeline is [Bullet 3](https://github.com/erwincoumans/bullet3), successo
 will be heavily GPU optimized with OpenCL support.
 
 ### DART
-[DART](https://github.com/dartsim/dart), a collaborative project based on [RTQL8](https://bitbucket.org/karenliu/rtql8),
-is a physics engine developed at Georgia Institute of Technology under the direction of Karen Liu and Michael Stilman.
-
-DART uses Featherstone solver for parts of the models that can be described by a kinematic tree, and uses
-Dantzig method (similar to
-[ODE's worldstep solver](https://bitbucket.org/osrf/gazebo/src/default/deps/opende/src/lcp.cpp)) for all other
-constraints.
-
-Currently...
+[DART](https://github.com/dartsim/dart) (Dynamic Animation and Robotics Toolkit) is a collaborative, cross-platform, open source library created by the Georgia Tech [Graphics Lab](http://www.cc.gatech.edu/graphics/) and [Humanoid Robotics Lab](http://www.golems.org/). The library provides data structures and algorithms for kinematic and dynamic applications in robotics and computer animation.  For more information, please visit the [official DART website](http://dartsim.github.io/).
 
 ### Open Dynamics Engine (ODE)
 [Open Dynamics Engine (ODE)](http://opende.sourceforge.net/) is an Open Source physics engine authored by Russel Smith.
