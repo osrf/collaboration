@@ -74,7 +74,7 @@ It's a well tested engine that has been used by many robotics and non-robotics p
 
 ### Simbody
 [Simbody](https://simtk.org/home/simbody/) is a bio-mechanical inspired rigid multibody dynamics engine.
-It is the solved used by [OpenSim](https://simtk.org/???), a popular muscular-skeletal simualtion front-end
+It is the solver used by [OpenSim](https://simtk.org/???), a popular muscular-skeletal simualtion front-end
 commonly used by researchers in the bio-mechanical community.
 
 Simbody was recently moved to [github repository](https://github.com/simbody/).
