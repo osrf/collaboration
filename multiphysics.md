@@ -78,9 +78,7 @@ We'll highlight differences between each of the physics engines by components.
 
  * Bullet
      * [btSequentialImpulseConstraintSolver](https://code.google.com/p/bullet/source/browse/tags/bullet-2.82/src/BulletDynamics/ConstraintSolver/btSequentialImpulseConstraintSolver.h) and [Experimental Featherstone Solvers (not yet enabled through Gazebo)](https://code.google.com/p/bullet/source/browse/tags/bullet-2.82/src/#src%2FBulletDynamics%2FFeatherstone).
- * DART
-     * [Dantzig Constraint Solver](https://github.com/dartsim/dart/blob/master/src/lcpsolver/lcp.h)
-     * [Featherstone Algorithm Implementation](https://github.com/dartsim/dart/blob/master/src/dynamics/Skeleton.h).
+ * DART formulates the constraint problem as a velocity-based LCP, and solves the problem using the [Dantzig](https://github.com/dartsim/dart/blob/master/src/lcpsolver/lcp.h) or Lemke algorithm.
  * ODE
      * [quickstep solver](https://bitbucket.org/osrf/gazebo/src/default/deps/opende/src/quickstep.cpp)
      * [worldstep solver](https://bitbucket.org/osrf/gazebo/src/default/deps/opende/src/lcp.cpp)
