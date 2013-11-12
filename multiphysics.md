@@ -74,11 +74,14 @@ Simbody was recently moved to [github repository](https://github.com/simbody/).
 ## Differences Between Different Physics Engines By Components
 We'll highlight differences between each of the physics engines by components.
 
-### Dynamics and Constraint Solvers
+### Constraint Solvers
+**TODO Put a summary here:**
+
+![Picture](https://dl.dropboxusercontent.com/s/0xril5vpmdr39dw/CollisionResponse.png)
 
  * Bullet
      * [btSequentialImpulseConstraintSolver](https://code.google.com/p/bullet/source/browse/tags/bullet-2.82/src/BulletDynamics/ConstraintSolver/btSequentialImpulseConstraintSolver.h) and [Experimental Featherstone Solvers (not yet enabled through Gazebo)](https://code.google.com/p/bullet/source/browse/tags/bullet-2.82/src/#src%2FBulletDynamics%2FFeatherstone).
- * DART formulates the constraint problem as a velocity-based LCP, and solves the problem using the [Dantzig](https://github.com/dartsim/dart/blob/master/src/lcpsolver/lcp.h) or Lemke algorithm.
+ * DART formulates the constraint problem as a velocity-based LCP, and solves the problem using the [Dantzig](https://github.com/dartsim/dart/blob/master/src/lcpsolver/lcp.h) or Lemke algorithm.  
  * ODE
      * [quickstep solver](https://bitbucket.org/osrf/gazebo/src/default/deps/opende/src/quickstep.cpp)
      * [worldstep solver](https://bitbucket.org/osrf/gazebo/src/default/deps/opende/src/lcp.cpp)
