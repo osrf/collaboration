@@ -4,10 +4,26 @@ For robot simulation research and applications in areas such as controls, naviga
 
 The governing equations behind dynamical systems of constrained rigid bodies is often described by a system of algebraic or ordinary differential equations. Proofs for solution existence and uniqueness have been diligently derived by many researchers over the years [cite](...). It is also a well known fact that increased model complexity such as redundant constraints, kinematic loops, realistic impact and non-linear frictional forces can render the solution non-unique or otherwise robust algorithms devoid of their solution existence or uniqueness properties [cite](...). In other word, increasing physical realism in simulations can easily make the solution process slow or non-trivial.
 
-Further, for any particular set of governing equations of motion chosen by the simulatee, there exists many variables of simulation such as time discretization, modeling abstraction, numerical solution technique, each can have huge impact on the outcome of simulation. Gazebo tries to alleviate this problem by expanding the available physics toolset at hand by providing common physics abstraction interface into several well know physics engines. Details of supported engines are described in the following section.
+Further, for any particular set of governing equations of motion chosen by the simulatee, there exists many variables of simulation such as time discretization, modeling abstraction, numerical solution technique, each can have huge impact on the outcome of simulation. Gazebo tries to alleviate this problem by expanding the available physics toolset at hand by providing common physics abstraction interface into several well know physics engines. Details of supported engines are described in the [sections below](link to Gazebo Supported Physics Engines).
+
+
+## Installation
+
+At first (as of Gazebo 2.1, 3.0), multi-physics support will be available from source installs of Gazebo, with partial support (Bullet only) using binary install.
+
+***TODO: Provide links to installation instructions here.  Check if the above statements are true for each engine as of Gazebo 2.1.***
+
+We plan to make full multi-physics engine support available through Ubuntu debian binary installs with the future release of Gazebo 4.0.
+
+***TODO: double check release planning.***
+
+Run-time support for multiplexing multiple physics engines at once will not be available until Gazebo 5.0 or later.
+
+***TODO: Check the Gazebo release numbers for each of the new features described above.***
 
 ## Gazebo Supported Physics Engines
-This section summarizes each physics engine.
+
+This section summarizes details of supported physics engines (list maybe incomplete).
 
 ### Bullet
 [Bullet 2](http://bulletphysics.org/wordpress/) is an Open Source physics engine written by Erwin Cousman, utilizing
@@ -37,7 +53,8 @@ Simbody was recently moved to [github repository](https://github.com/simbody/).
 
 
 ## Differences Between Different Physics Engines By Components
-We'll highlight differences between each of the physics engines by components.
+
+A typical physics engine may contain a few of the following core components: model properties and corresponding datastructures, time flow control, constraint solvers, collision detection, collision resolution (handing), integration and error control. We'll attempt to highlight some of the more distinguished design or implementation differences between each of the physics engines. But as mentioned before, expected simulation outcome can be sensitive to various modeling and solver parameters, so this section can only serve as a general guideline, neglecting many solution technique details.  Given each physics engine is developed independently, the slightest difference in code can result in drastic divergence in simulation outcome.
 
 ### Constraint Solvers
 **TODO Put a summary here:**
