@@ -54,7 +54,18 @@ Simbody was recently moved to [github repository](https://github.com/simbody/).
 
 ## Differences Between Different Physics Engines By Components
 
-A typical physics engine may contain a few of the following core components: model properties and corresponding datastructures, time flow control, constraint solvers, collision detection, collision resolution (handing), integration and error control. We'll attempt to highlight some of the more distinguished design or implementation differences between each of the physics engines. But as mentioned before, expected simulation outcome can be sensitive to various modeling and solver parameters, so this section can only serve as a general guideline, neglecting many solution technique details.  Given each physics engine is developed independently, the slightest difference in code can result in drastic divergence in simulation outcome.
+Each physics engine may hold very different views on components of a complete dynamics solver.  For example,
+
+* how model properties and system states are described and stored,
+* how time flow is controlled,
+* what constraint solvers are used,
+* what collision detection algorithms are used,
+* how are collisions resolved / handled,
+* what integrators or differencing schemes are used for advancing system states in time,
+* how are intermediate states (e.g. joint or constraint Jacobians) and modeling variables (e.g. joint wrench, articulated body inertia) updated and accessed and
+* what kind of error control is exposed to the end users, etc.
+
+We'll attempt to highlight some of the more distinguished design or implementation differences between each of the physics engines. But as mentioned before, expected simulation outcome can be sensitive to various modeling and solver parameters, so this section can only serve as a general guideline, neglecting many solution technique details.  Given each physics engine is developed independently, the slightest difference in code can result in drastic divergence in simulation outcome.
 
 ### Constraint Solvers
 **TODO Put a summary here:**
