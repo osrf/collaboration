@@ -65,7 +65,7 @@ Each physics engine may hold very different views / solution approaches to diffe
 * how are intermediate states (e.g. joint or constraint Jacobians) and modeling variables (e.g. joint wrench, articulated body inertia) updated and accessed and
 * what kind of error control is exposed to the end users, etc.
 
-We'll attempt to highlight some of the more distinguished design or implementation differences between each of the physics engines. But as mentioned before, expected simulation outcome can be sensitive to various modeling and solver parameters, so this section can only serve as a general guideline, neglecting many solution technique details.  Given each physics engine is developed independently, the slightest difference in code can result in drastic divergence in simulation outcome.
+We'll attempt to highlight some of the more distinguished design or implementation differences between each of the physics engines. But as mentioned before, expected simulation outcome can be extremely sensitive to various modeling and solver parameters, many of the parameters are not mentioned here. And the fact that the slightest difference in code can result in drastically diverging simulation outcome. With that in mind, this section can only serve as an approximate guideline, blantantly neglecting many solver details due to wiki editor's ignorance.  Fortunately, community wiki contribution can potentially make this document more complete and less erroneous over time.
 
 ### Constraint Solvers
 **TODO Put a summary here:**
