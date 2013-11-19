@@ -1,45 +1,10 @@
 # Gazebo Multi-Physics Engine Support
 
-## FAQ / Overview
+For robot simulation research and applications in areas such as controls, navigation and mobile manipulation, the simulated robot's dynamical actuation response or physical interaction with objects in the environment can often be obtained with varying degrees of realism. Tradeoffs between physics realism and simulation performance means simulation platforms often forces its user to make a choice between fast simulation or solutions that *sufficiently converges* to the exact answers when the model complexities are increased.
 
-* How are multiple physics engines supported in Gazebo?
-    * Several forward dynamics engines have been integrated as library dependencies by Gazebo.  Gazebo provides users with a unified modeling interface that transparently supports access to the physics and dynamics updates from each physics engine.  This is made possible by Gazebo's core physics API.
-    * As of Gazebo-2.1, a user can pass in a commandline argument to tell gazebo which engine to use.  The ability to switch between different engines dynamically will be added in subsequent Gazebo release.
+The governing equations behind dynamical systems of constrained rigid bodies is often described by a system of algebraic or ordinary differential equations. Proofs for solution existence and uniqueness have been diligently derived by many researchers over the years [cite](...). It is also a well known fact that increased model complexity such as redundant constraints, kinematic loops, realistic impact and non-linear frictional forces can render the solution non-unique or otherwise robust algorithms devoid of their solution existence or uniqueness properties [cite](...). In other word, increasing physical realism in simulations can easily make the solution process slow or non-trivial.
 
-* Why is support for multiple physics engines useful?
-    * There lack a research platform where drastically different engines are supported and tested thoroughly.  Testing and maintenance is a major effort, and requires a top down approach to make sure everything is treated fairly.  Sometimes custom attention is paid to a particular aspect of a physics engine because of its capabilities and differences with other physics engines, making comparison difficult.  For example, error measurement can be hard to compare differently between maximal and reduced coordinate system solvers, the problem varies a lot based on many factors such as requirements in performance, accuracy or simplifying assumptions imposed on the model.
-    * A unified interface to multiple physics engines also provides a level playing field for comparing accuracy and performance of the physics engines.  These comparisons may help the upstream developers of the engines to identify bugs in their code or places where computational speed can be improved. It can also be used to compare algorithms for dynamic simulation.
-    * Some solvers have restrictions on the underlying model structure.  For example, Featherstone solvers require simulated models to have tree structured kinematics, and contacts or kinematic loop closures need to be modeled with LCP constraints.
-    * Different dynamic solver algorithms can have drastically different behaviors in terms of accuracy, performance, robustness to errors and perturbation when simulated models or simulation parameters are changed.
-    For example, Projected Gauss Seidel (PGS)-type constraint solvers are much more forgiving to large errors and perturbations in mixed linear complementarity problems (MLCP),
-    but at the same time, un-preconditioned PGS solvers are well known for non-convergence in certain situations.
-    On the other hand, dynamics solvers using Featherstone's articulated body algorithm to model articulated system's
-    internal joints will always have zero joint error, but a system's interaction with its environment modeled by constraints may also pose convergence difficulties (as demonstrated by [this example](some example)).
-    * Diverse feature support for different physics engines.
-    * Fine tuning individual simulation scenarios requires insight to how the system is being modeled and the specific type of solver used.
-    Tutorials in the [examples section](somewhere below) below will attempt to demonstrate differences in simulation results for different physics engines under different scenarios.
-    * Emphasize existing features in gazebo outside of physics, e.g. camera, laser sensors, plugin api, ros integration.
-* What criteria to consider when choosing a physics engine? (highlight a few corner use cases where certain needs are met by certain physics engines)
-    * Highly accurate:
-        * Designing and tuning controllers.
-        * Model validation.
-        * Different error characteristics for differrent algorithms.
-        * Numerical robustness to large errors or perturbations.
-        * Flexible error control.
-    * Ultra-fast simulation for predictive control:
-        * Evolving a controller or robot design based on a genetic algorithms, hunreds of thousands of simulations are needed to
-        perform sensitivity analysis.
-        * Predictive control, where the user wants to know what might happen when teleoperating robot.
-    * Low latency, synchronization with real-time controllers:
-        * Real-time teleoperation testing.
-        * Testing software that are running asynchronously, and expects a "real robot" hardware.
-    * Scalable:
-        * Swarm research, thousands of robots.
-    * Feature support:
-        * Heightmap
-        * Deformable bodies / cloth (not working yet)
-        * Contact modeling (e.g. Simbody elastic foundation, DART deformable bodies).
-        * Access to physics engine internal states (Jacobians, ABI, etc.)
+Further, for any particular set of governing equations of motion chosen by the simulatee, there exists many variables of simulation such as time discretization, modeling abstraction, numerical solution technique, each can have huge impact on the outcome of simulation. Gazebo tries to alleviate this problem by expanding the available physics toolset at hand by providing common physics abstraction interface into several well know physics engines. Details of supported engines are described in the following section.
 
 ## Gazebo Supported Physics Engines
 This section summarizes each physics engine.
@@ -146,22 +111,45 @@ Only simbody can "bounce"
 High Speed Controller Tuning
 
 
+## FAQ / Overview
+
+* How are multiple physics engines supported in Gazebo?
+    * Several forward dynamics engines have been integrated as library dependencies by Gazebo.  Gazebo provides users with a unified modeling interface that transparently supports access to the physics and dynamics updates from each physics engine.  This is made possible by Gazebo's core physics API.
+    * As of Gazebo-2.1, a user can pass in a commandline argument to tell gazebo which engine to use.  The ability to switch between different engines dynamically will be added in subsequent Gazebo release.
+
+* Why is support for multiple physics engines useful?
+    * There lack a research platform where drastically different engines are supported and tested thoroughly.  Testing and maintenance is a major effort, and requires a top down approach to make sure everything is treated fairly.  Sometimes custom attention is paid to a particular aspect of a physics engine because of its capabilities and differences with other physics engines, making comparison difficult.  For example, error measurement can be hard to compare differently between maximal and reduced coordinate system solvers, the problem varies a lot based on many factors such as requirements in performance, accuracy or simplifying assumptions imposed on the model.
+    * A unified interface to multiple physics engines also provides a level playing field for comparing accuracy and performance of the physics engines.  These comparisons may help the upstream developers of the engines to identify bugs in their code or places where computational speed can be improved. It can also be used to compare algorithms for dynamic simulation.
+    * Some solvers have restrictions on the underlying model structure.  For example, Featherstone solvers require simulated models to have tree structured kinematics, and contacts or kinematic loop closures need to be modeled with LCP constraints.
+    * Different dynamic solver algorithms can have drastically different behaviors in terms of accuracy, performance, robustness to errors and perturbation when simulated models or simulation parameters are changed.
+    For example, Projected Gauss Seidel (PGS)-type constraint solvers are much more forgiving to large errors and perturbations in mixed linear complementarity problems (MLCP),
+    but at the same time, un-preconditioned PGS solvers are well known for non-convergence in certain situations.
+    On the other hand, dynamics solvers using Featherstone's articulated body algorithm to model articulated system's
+    internal joints will always have zero joint error, but a system's interaction with its environment modeled by constraints may also pose convergence difficulties (as demonstrated by [this example](some example)).
+    * Diverse feature support for different physics engines.
+    * Fine tuning individual simulation scenarios requires insight to how the system is being modeled and the specific type of solver used.
+    Tutorials in the [examples section](somewhere below) below will attempt to demonstrate differences in simulation results for different physics engines under different scenarios.
+    * Emphasize existing features in gazebo outside of physics, e.g. camera, laser sensors, plugin api, ros integration.
+* What criteria to consider when choosing a physics engine? (highlight a few corner use cases where certain needs are met by certain physics engines)
+    * Highly accurate:
+        * Designing and tuning controllers.
+        * Model validation.
+        * Different error characteristics for differrent algorithms.
+        * Numerical robustness to large errors or perturbations.
+        * Flexible error control.
+    * Ultra-fast simulation for predictive control:
+        * Evolving a controller or robot design based on a genetic algorithms, hunreds of thousands of simulations are needed to
+        perform sensitivity analysis.
+        * Predictive control, where the user wants to know what might happen when teleoperating robot.
+    * Low latency, synchronization with real-time controllers:
+        * Real-time teleoperation testing.
+        * Testing software that are running asynchronously, and expects a "real robot" hardware.
+    * Scalable:
+        * Swarm research, thousands of robots.
+    * Feature support:
+        * Heightmap
+        * Deformable bodies / cloth (not working yet)
+        * Contact modeling (e.g. Simbody elastic foundation, DART deformable bodies).
+        * Access to physics engine internal states (Jacobians, ABI, etc.)
 
 
-
-
-
-
-# Summary Table
-
-Note: table worked ok on Gazebo wiki, but not in bitbucket.
-
-| Physics Engine || Reduced Coordinate System || Contact Constraint Resolution || Variable Time Stepping
-|-
-| ODE || No || LCP with Dantzig or PGS || No
-|-
-| Bullet || No (but under development) || LCP with PGS || No
-|-
-| Simbody || Mobilizers || Hertz Contact Model || Supported
-|-
-| DART || Joints || LCP with Dantzig || Supported
