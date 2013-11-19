@@ -54,7 +54,7 @@ Simbody was recently moved to [github repository](https://github.com/simbody/).
 
 ## Differences Between Different Physics Engines By Components
 
-Each physics engine may hold very different views on components of a complete dynamics solver.  For example,
+Each physics engine may hold very different views / solution approaches to different components in a complete dynamics solver.  Example components that maybe treated differently by physics engines are listed below,
 
 * how model properties and system states are described and stored,
 * how time flow is controlled,
