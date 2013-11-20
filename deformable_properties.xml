@@ -17,7 +17,7 @@ Karen's proposal
 </collision>
 
 
-- John Notes
+- Per discussion, move <geometry> up to under <collision>
 <collision>
         <!-- Steve: we could also support simple shape types if we generate meshes automatically -->
         <geometry>
