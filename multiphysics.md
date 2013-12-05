@@ -12,8 +12,10 @@ existence or uniqueness properties are no longer guaranteed [cite](...).
 For example, simulating mechanisms with redundant constraints, kinematic loops, impact or non-linear frictional forces can render many otherwise robust algorithms inefficient or ineffective.
 Further, tunable simulation parameters such as temporal discretization, model material properties, applied numerical integration techniques, etc. can often affect simulation outcomes significantly.
 
-Gazebo tries to alleviate these issues by expanding the available physics toolsets at hand, providing a common physics abstraction interface for several well know physics engines. Details of supported engines are described in the [sections below](link to Gazebo Supported Physics Engines).
+Gazebo tries to alleviate these issues by expanding the available physics toolsets at hand, providing a common physics abstraction interface for several well know physics engines with different solution approaches.
+This list currently includes [Open Dynamics Engine (ODE)](...), [Bullet](...), [DART](...) and [Simbody](...).
 
+More details of each supported engines can be found in the [sections below](link to Gazebo Supported Physics Engines).
 
 ## Installation
 
