@@ -5,10 +5,14 @@ Simulated robot dynamics is often computed with varying degrees of realism.
 Whether it's used for modeling actuation response in controller design or modeling environment interactions for mobile manipulation research, tradeoff decisions between physics realism and performance is often a major undertaking when using a simulator.
 Especially with increasing model complexities, getting both fast simulation and results that *sufficiently converges* to the theoretical solution can be difficult if not impossible at times.
 
-The governing equations behind modeling constrained rigid multibody dynamics is described by a system of algebraic or ordinary differential equations. Proofs for solution existence and uniqueness have been diligently derived by researchers over the years [cite](...).
-It is also a well known fact that increased model complexity such as redundant constraints, kinematic loops, realistic impact and non-linear frictional forces can render the solution non-unique or otherwise robust algorithms devoid of their solution existence or uniqueness properties [cite](...). In other word, increasing physical realism in simulations can easily make the solution process slow or non-trivial.
+The governing equations behind modeling constrained rigid multibody dynamics is often described by a system of algebraic or ordinary differential equations.
+For simple frictionless systems, solution existence and uniqueness proofs have been diligently derived by researchers over the years [cite](...).
+However, for systems with increased physics fidelity or model complexity,
+existence or uniqueness properties are no longer guaranteed [cite](...).
+For example, simulating mechanisms with redundant constraints, kinematic loops, impact or non-linear frictional forces can render many otherwise robust algorithms inefficient or ineffective.
+Further, tunable simulation parameters such as temporal discretization, model material properties, applied numerical integration techniques, etc. can often affect simulation outcomes significantly.
 
-Further, for any particular set of governing equations of motion chosen by the simulatee, there exists many variables of simulation such as time discretization, modeling abstraction, numerical solution technique, each can have huge impact on the outcome of simulation. Gazebo tries to alleviate this problem by expanding the available physics toolset at hand by providing common physics abstraction interface into several well know physics engines. Details of supported engines are described in the [sections below](link to Gazebo Supported Physics Engines).
+Gazebo tries to alleviate these issues by expanding the available physics toolsets at hand, providing a common physics abstraction interface for several well know physics engines. Details of supported engines are described in the [sections below](link to Gazebo Supported Physics Engines).
 
 
 ## Installation
