@@ -2,7 +2,7 @@
 
 Gazebo is a simulation platform for robotics research and applications development.
 Simulated robot dynamics is often computed with varying degrees of realism.
-Whether it's used for modeling actuation response in controller design or modeling environment interactions for mobile manipulation research, tradeoff decisions between physics realism and performance is often a major undertaking when using a simulator.
+Whether simulation is used for modeling actuation response in controller design or predicting environment interactions for mobile manipulation research, making tradeoff decisions between physics realism and performance is often a major undertaking when using a simulator.
 Especially with increasing model complexities, getting both fast simulation and results that *sufficiently converges* to the theoretical solution can be difficult if not impossible at times.
 
 The governing equations behind modeling constrained rigid multibody dynamics is often described by a system of algebraic or ordinary differential equations.
