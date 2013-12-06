@@ -2,7 +2,7 @@
 
 ## Open Issues
 
- * Rename Joint::SetAngle and change return type
+ * Rename Joint::SetAngle and Joint::GetAngle.  Change input param and return type from math::Angle to something that works with both sliders and hinge joints.
  * Joint::SetVelocity is persistant but Joint::SetForce is not.  Consider renaming to Joint::SetForce(duration, start time) or creating Joint::SetImpulse.
  * Reference frames
     * Consider attaching reference frames to state getters and setters (currently mostly world or "relative?" frame).
