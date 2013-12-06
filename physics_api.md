@@ -8,9 +8,10 @@
     * Consider allowing reference frames in state getters and setters (currently mostly world or "relative?" frame).
     * Consider attachign Entity pointer to transforms (Pose, Vector3, Quaternion, Wrench) to specify a reference frame (as suggested by Jesper for Wrenches).
     * What to do with Relative Get and Set API.
-    * 
-    * 
-
+ * Merging URDF and SDF 
+   * Packaging: merging urdfdom_headers, urdfdom, sdformat
+   * Merge URDF and SDF way of specifying kinematics.  URDF: tree, recursive, SDF: graph.
+       * support non-tree in URDF: Designate a non-tree joint fallback to:  break / fuse when needed.  Fuse is best specified by a group concept, where multiple joints in a graph can be fused to form a super-link.
 
 ## Entity.hh
 
