@@ -5,15 +5,18 @@
  * Rename Joint::SetAngle and change return type
  * Joint::SetVelocity is persistant but Joint::SetForce is not.  Consider renaming to Joint::SetForce(duration, start time) or creating Joint::SetImpulse.
  * Reference frames
-    * Consider allowing reference frames in state getters and setters (currently mostly world or "relative?" frame).
-    * Consider attachign Entity pointer to transforms (Pose, Vector3, Quaternion, Wrench) to specify a reference frame (as suggested by Jesper for Wrenches).
-    * What to do with Relative Get and Set API.
+    * Consider attaching reference frames to state getters and setters (currently mostly world or "relative?" frame).
+    * Consider attaching Entity pointer to transforms (Pose, Vector3, Quaternion, Wrench) to specify a reference frame (as suggested by Jesper for Wrenches).
+    * What to do with Relative Get and Set API, currently it's not so intuitive.
  * Merging URDF and SDF 
    * Packaging: merging urdfdom_headers, urdfdom, sdformat
-   * Merge URDF and SDF way of specifying kinematics.  URDF: tree, recursive, SDF: graph.
-       * Support non-tree in URDF: Designate a non-tree joint fallback to:  break / fuse when needed.  Fuse is best specified by a group concept, where multiple joints in a graph can be fused to form a super-link.
-       * Use joint mimic to simplify graphs.  See for example the [JointMimic](https://github.com/ros/urdfdom_headers/blob/master/urdf_model/include/urdf_model/joint.h#L149) class.
-
+   * Merge URDF and SDF way of specifying kinematics.  URDF: tree, recursive hierarchy, SDF: graph, flat hierarchy.
+       * Define joints as **breakable**, ignore joint if needed.
+       * Define <graph> or <superlinks>, designating groups of links to be fused if needed.
+       * Use joint mimic to simplify graphs.  See for example the [JointMimic](https://github.com/ros/urdfdom_headers/blob/master/urdf_model/include/urdf_model/joint.h#L149) class.  This can be simulated GearBox joints.
+ * Introduce **prescribed motion**.
+ * Introduce motor controlled joints.
+ 
 ## [Entity.hh](https://bitbucket.org/osrf/gazebo/src/577847c43d021f7edc838a30c0eafc99ea312571/gazebo/physics/Entity.hh?at=default)
 
 ### Set States
