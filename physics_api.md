@@ -3,7 +3,7 @@
 
 ## Entity.hh
 
-### Set State (Existing)
+### Set States
 
       /// \brief Set the world pose of the entity.
       /// \param[in] _pose The new world pose.
@@ -34,7 +34,7 @@
                                    bool _notify = true,
                                    bool _publish = true);
 
-### Get State (Existing)
+### Get States
 
       /// \brief Get the absolute pose of the entity.
       /// \return The absolute pose of the entity.
@@ -91,7 +91,7 @@
 
 ## Link.hh
 
-### Set State
+### Set States
 
       /// \brief Set the linear velocity of the body.
       /// \param[in] _vel Linear velocity.
@@ -109,51 +109,7 @@
       /// \param[in] _accel Angular acceleration.
       public: void SetAngularAccel(const math::Vector3 &_accel);
 
-
-### Set Forces / Torques
-
-      /// \brief Set the force applied to the body.
-      /// \param[in] _force Force value.
-      public: virtual void SetForce(const math::Vector3 &_force) = 0;
-
-      /// \brief Set the torque applied to the body.
-      /// \param[in] _torque Torque value.
-      public: virtual void SetTorque(const math::Vector3 &_torque) = 0;
-
-      /// \brief Add a force to the body.
-      /// \param[in] _force Force to add.
-      public: virtual void AddForce(const math::Vector3 &_force) = 0;
-
-      /// \brief Add a force to the body, components are relative to the
-      /// body's own frame of reference.
-      /// \param[in] _force Force to add.
-      public: virtual void AddRelativeForce(const math::Vector3 &_force) = 0;
-
-      /// \brief Add a force to the body using a global position.
-      /// \param[in] _force Force to add.
-      /// \param[in] _pos Position in global coord frame to add the force.
-      public: virtual void AddForceAtWorldPosition(const math::Vector3 &_force,
-                  const math::Vector3 &_pos) = 0;
-
-      /// \brief Add a force to the body at position expressed to the body's
-      /// own frame of reference.
-      /// \param[in] _force Force to add.
-      /// \param[in] _relPos Position on the link to add the force.
-      public: virtual void AddForceAtRelativePosition(
-                  const math::Vector3 &_force,
-                  const math::Vector3 &_relPos) = 0;
-
-      /// \brief Add a torque to the body.
-      /// \param[in] _torque Torque value to add to the link.
-      public: virtual void AddTorque(const math::Vector3 &_torque) = 0;
-
-      /// \brief Add a torque to the body, components are relative to the
-      /// body's own frame of reference.
-      /// \param[in] _torque Torque value to add.
-      public: virtual void AddRelativeTorque(const math::Vector3 &_torque) = 0;
-
 ### Get States
-
 
       /// \brief Get the pose of the body's center of gravity in the world
       ///        coordinate frame.
@@ -212,6 +168,48 @@
       /// frame.
       /// \return Angular acceleration of the body in the world frame.
       public: math::Vector3 GetWorldAngularAccel() const;
+
+### Set Forces / Torques
+
+      /// \brief Set the force applied to the body.
+      /// \param[in] _force Force value.
+      public: virtual void SetForce(const math::Vector3 &_force) = 0;
+
+      /// \brief Set the torque applied to the body.
+      /// \param[in] _torque Torque value.
+      public: virtual void SetTorque(const math::Vector3 &_torque) = 0;
+
+      /// \brief Add a force to the body.
+      /// \param[in] _force Force to add.
+      public: virtual void AddForce(const math::Vector3 &_force) = 0;
+
+      /// \brief Add a force to the body, components are relative to the
+      /// body's own frame of reference.
+      /// \param[in] _force Force to add.
+      public: virtual void AddRelativeForce(const math::Vector3 &_force) = 0;
+
+      /// \brief Add a force to the body using a global position.
+      /// \param[in] _force Force to add.
+      /// \param[in] _pos Position in global coord frame to add the force.
+      public: virtual void AddForceAtWorldPosition(const math::Vector3 &_force,
+                  const math::Vector3 &_pos) = 0;
+
+      /// \brief Add a force to the body at position expressed to the body's
+      /// own frame of reference.
+      /// \param[in] _force Force to add.
+      /// \param[in] _relPos Position on the link to add the force.
+      public: virtual void AddForceAtRelativePosition(
+                  const math::Vector3 &_force,
+                  const math::Vector3 &_relPos) = 0;
+
+      /// \brief Add a torque to the body.
+      /// \param[in] _torque Torque value to add to the link.
+      public: virtual void AddTorque(const math::Vector3 &_torque) = 0;
+
+      /// \brief Add a torque to the body, components are relative to the
+      /// body's own frame of reference.
+      /// \param[in] _torque Torque value to add.
+      public: virtual void AddRelativeTorque(const math::Vector3 &_torque) = 0;
 
 ### Get Forces / Torques
 
