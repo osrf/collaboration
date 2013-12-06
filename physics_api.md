@@ -11,7 +11,8 @@
  * Merging URDF and SDF 
    * Packaging: merging urdfdom_headers, urdfdom, sdformat
    * Merge URDF and SDF way of specifying kinematics.  URDF: tree, recursive, SDF: graph.
-       * support non-tree in URDF: Designate a non-tree joint fallback to:  break / fuse when needed.  Fuse is best specified by a group concept, where multiple joints in a graph can be fused to form a super-link.
+       * Support non-tree in URDF: Designate a non-tree joint fallback to:  break / fuse when needed.  Fuse is best specified by a group concept, where multiple joints in a graph can be fused to form a super-link.
+       * Use joint mimic to simplify graphs.  See for example the [JointMimic](https://github.com/ros/urdfdom_headers/blob/master/urdf_model/include/urdf_model/joint.h#L149)
 
 ## Entity.hh
 
