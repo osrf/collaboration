@@ -14,7 +14,7 @@
        * Support non-tree in URDF: Designate a non-tree joint fallback to:  break / fuse when needed.  Fuse is best specified by a group concept, where multiple joints in a graph can be fused to form a super-link.
        * Use joint mimic to simplify graphs.  See for example the [JointMimic](https://github.com/ros/urdfdom_headers/blob/master/urdf_model/include/urdf_model/joint.h#L149) class.
 
-## Entity.hh
+## [Entity.hh](https://bitbucket.org/osrf/gazebo/src/577847c43d021f7edc838a30c0eafc99ea312571/gazebo/physics/Entity.hh?at=default)
 
 ### Set States
 
@@ -102,7 +102,7 @@
       public: virtual math::Vector3 GetRelativeAngularAccel() const
               {return math::Vector3();}
 
-## Link.hh
+## [Link.hh](https://bitbucket.org/osrf/gazebo/src/577847c43d021f7edc838a30c0eafc99ea312571/gazebo/physics/Link.hh?at=default)
 
 ### Set States
 
@@ -243,7 +243,7 @@
       public: virtual math::Vector3 GetWorldTorque() const = 0;
 
 
-## Joint
+## [Joint.hh](https://bitbucket.org/osrf/gazebo/src/577847c43d021f7edc838a30c0eafc99ea312571/gazebo/physics/Joint.hh?at=default#cl-302)
 
 ### Set States
 
