@@ -341,4 +341,49 @@
 
 
       
-      
+## Discussions
+
+### URDF Brainstorming
+
+#### Steve
+
+urdf: tree
+sdformat: graph
+
+fallback strategies for putting graphs in a tree
+
+ - break the loops
+ - freeze looped joints so that the loop becomes like a single link
+
+~~~
+<urdf>
+  <link/>
+  <joint/>
+  <graph>
+    <sdf>
+    </sdf>
+  </graph>
+</urdf>
+~~~
+
+#### John
+
+Just remembered a lot of times, graphs can be avoided by using mimic joints, or GearBox joints, and planners can usually deal with mimic, either with a ratio or through lookup tables.
+
+I like the name "superlink", it's a link, but it contains internal links and joints.  if internal joints are frozen, it's just another link, otherwise, it's a deformable body :)
+~~~
+<urdf>
+  <link/>
+  <joint/>
+  <link/>
+  <joint/>
+  <superlink>
+     <link/>
+     <joint/>
+     <link/>
+     <joint/>
+     <link/>
+     <mimic joint1, joint2/>
+  </superlink>
+</urdf>
+~~~
