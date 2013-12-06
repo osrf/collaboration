@@ -1,5 +1,16 @@
 # New Physics API
 
+## Open Issues
+
+ * Rename Joint::SetAngle and change return type
+ * Joint::SetVelocity is persistant but Joint::SetForce is not.  Consider renaming to Joint::SetForce(duration, start time) or creating Joint::SetImpulse.
+ * Reference frames
+    * Consider allowing reference frames in state getters and setters (currently mostly world or "relative?" frame).
+    * Consider attachign Entity pointer to transforms (Pose, Vector3, Quaternion, Wrench) to specify a reference frame (as suggested by Jesper for Wrenches).
+    * What to do with Relative Get and Set API.
+    * 
+    * 
+
 
 ## Entity.hh
 
