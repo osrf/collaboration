@@ -23,7 +23,7 @@
  * Add an "AssemblySolver" (Sherm).  Both for prescribed link/joint constraints.
    * For obtaining IK solutions.
    * Using position teleport (split impulse).
- 
+ * Joint::SetMaxForce and Joint::GetMaxForce does not make sense in internal coordinate sovlers.
  
 ## [Entity.hh](https://bitbucket.org/osrf/gazebo/src/577847c43d021f7edc838a30c0eafc99ea312571/gazebo/physics/Entity.hh?at=default)
 
