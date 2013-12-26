@@ -16,6 +16,14 @@
        * Use joint mimic to simplify graphs.  See for example the [JointMimic](https://github.com/ros/urdfdom_headers/blob/master/urdf_model/include/urdf_model/joint.h#L149) class.  This can be simulated GearBox joints.
  * Introduce **prescribed motion**.
  * Introduce motor controlled joints.
+ * Different types of SetPose()
+   * Setting Gazebo Link state independent of physic engines (disregarding dynamics, constraints and joints).
+   * Set link pose/twist in Cartesian solver case, pose/twist are not transferred to child links if the desired velocity is in the null space of the constraint.
+   * Set link pose/twist in Internal coordinate system, pose/twist are propagated to child links as if they are welded.
+ * Add an "AssemblySolver" (Sherm).  Both for prescribed link/joint constraints.
+   * For obtaining IK solutions.
+   * Using position teleport (split impulse).
+ 
  
 ## [Entity.hh](https://bitbucket.org/osrf/gazebo/src/577847c43d021f7edc838a30c0eafc99ea312571/gazebo/physics/Entity.hh?at=default)
 
