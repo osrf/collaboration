@@ -2,7 +2,7 @@
 [Granular Maxwell's demon](http://pof.tnw.utwente.nl/3_research/3_g_maxwell.html)
 
 [Desiderata from Reflections on simultaneous impact](http://dl.acm.org/citation.cfm?id=2185602)
-[pdf](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.245.1015&rep=rep1&type=pdf)
+([pdf](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.245.1015&rep=rep1&type=pdf))
 
 [Rocking block problem](http://www.bssaonline.org/content/53/2/403.short)
 "The behavior of inverted pendulum structures during earthquakes" Housner 1963,
