@@ -1,8 +1,6 @@
 ## Specific problems
 [Granular Maxwell's demon](http://pof.tnw.utwente.nl/3_research/3_g_maxwell.html)
 
-[Desiderata from Reflections on simultaneous impact](http://dl.acm.org/citation.cfm?id=2185602)
-([pdf](http://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.245.1015&rep=rep1&type=pdf))
 
 ### Rocking block on table
 [Analysis](http://www.bssaonline.org/content/53/2/403.short)
@@ -18,5 +16,9 @@
 Dahneke 1975
 
 ## Papers that have examples to look at
+[Reflections on simultaneous impact](http://www.cs.columbia.edu/cg/rosi/)
+([pdf](http://www.cs.columbia.edu/cg/rosi/rosi.pdf)) ([movie](http://www.cs.columbia.edu/cg/rosi/rosi.mov))
+Smith, Kaufman, et al. 2012
+
 [Impulse-based simulation of rigid bodies](http://dl.acm.org/citation.cfm?id=199436)
 Mirtich, Canny, 1995.
