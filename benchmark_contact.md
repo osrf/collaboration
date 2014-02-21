@@ -4,10 +4,12 @@
 
 ### Rocking block on table
 [Analysis](http://www.bssaonline.org/content/53/2/403.short)
-"The behavior of inverted pendulum structures during earthquakes" Housner 1963,
+"The behavior of inverted pendulum structures during earthquakes" Housner 1963
+([pdf](ftp://ftp.ecn.purdue.edu/ayhan/Sozen/The%20behavior%20of%20inverted%20pendulum%20structures%20during%20earthquakes%20_%20Housner.pdf))
 
 [Experimental data](http://dx.doi.org/10.1002/eqe.739)
 "On the dynamics of rocking motion of single rigid-block structures" Peña et al. 2007
+([pdf](https://repositorium.sdum.uminho.pt/bitstream/1822/8957/1/Pena1.pdf))
 
 ### Bouncing spheres experiments
 [Listening to the coefficient of restitution](http://dx.doi.org/10.1119/1.10904) Bernstein 1977
