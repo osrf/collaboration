@@ -24,3 +24,8 @@ Smith, Kaufman, et al. 2012
 
 [Impulse-based simulation of rigid bodies](http://dl.acm.org/citation.cfm?id=199436)
 Mirtich, Canny, 1995.
+
+## Reference books
+
+[Impact (Dover Civil and Mechanical Engineering)](http://www.amazon.com/Impact-Dover-Civil-Mechanical-Engineering/dp/0486420043)
+Goldsmith 2001. I believe that this has a bunch of reference data for restitution experiments.
