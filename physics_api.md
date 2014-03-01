@@ -2,6 +2,7 @@
 
 ## Open Issues
 
+ * Should we allow the choice between single and double precision?
  * Rename Joint::SetAngle and Joint::GetAngle.  Change input param and return type from math::Angle to something that works with both sliders and hinge joints. Instead of Angle, it could be configuration, state, or position.
  * Rename Joint::SetForce to SetEffort.
  * Write tests for each API to indicate how we expect it to work.
