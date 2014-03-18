@@ -11,6 +11,11 @@ Nate, Evan, Steve, John
  * Do we allow users to change gravity at runtime?
  * Do we allow users to change inertia at runtime?
  * Stragegy: start simple.
+ * What if physics engines want to handle collision internally?  Simbody/DART/ODE/Bullet allows third party collision engine callbacks.  Moby would like to have total control over collision handling due to continuous collision detection capabilities.  This is needed to prevent interpenetration.  (Mirtich's approach).
+ * Should Gazebo have it's own collision detection library.
+ 
+TODO:
+
  * 
 
 ## High Level Description
