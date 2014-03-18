@@ -16,7 +16,15 @@ Nate, Evan, Steve, John
  
 TODO:
 
- * 
+ * Decide between generalized coordinate support vs. absolute coordinate support.
+     * Steve: find a subset of exiting API that works with both.
+ * Decide initial simulation scenarios:
+     * box on plane
+     * pendulum
+     * pioneer
+ * Testing for physics plugin api.
+ * Repeat physics tests for plugin physics.
+
 
 ## High Level Description
 
