@@ -26,7 +26,8 @@ TODO:
      * pioneer
  * Testing for physics plugin api.
  * Repeat physics tests for plugin physics.
-
+ * Create OpenPL repository
+     * Define initial API
 
 ## High Level Description
 
