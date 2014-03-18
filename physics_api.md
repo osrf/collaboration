@@ -10,8 +10,7 @@ Current gazebo physics engine
  * [PhysicsEngine::Init](https://bitbucket.org/osrf/gazebo/src/577847c43d021f7edc838a30c0eafc99ea312571/gazebo/physics/PhysicsEngine.hh?at=default#cl-57): Initialize underlying physics engine.
  * [PhysicsEngine::Reset](https://bitbucket.org/osrf/gazebo/src/577847c43d021f7edc838a30c0eafc99ea312571/gazebo/physics/PhysicsEngine.hh?at=default#cl-63)
  * [PhysicsEngine::Fini](https://bitbucket.org/osrf/gazebo/src/577847c43d021f7edc838a30c0eafc99ea312571/gazebo/physics/PhysicsEngine.hh?at=default#cl-60)
- * [PhysicsEngine::InitForThread](https://bitbucket.org/osrf/gazebo/src/577847c43d021f7edc838a30c0eafc99ea312571/gazebo/physics/PhysicsEngine.hh?at=default#cl-66)
- * [PhysicsEngine::SetSeed](https://bitbucket.org/osrf/gazebo/src/577847c43d021f7edc838a30c0eafc99ea312571/gazebo/physics/PhysicsEngine.hh?at=default#cl-77)
+ * [PhysicsEngine::InitForThread](https://bitbucket.org/osrf/gazebo/src/577847c43d021f7edc838a30c0eafc99ea312571/gazebo/physics/PhysicsEngine.hh?at=default#cl-66): Prepare physics engine for multi-threaded access.
  * CreateModel
  * CreateLink
  * CreateCollision
@@ -20,6 +19,7 @@ Current gazebo physics engine
 
 ### Runtime Modifications Getters and Setters
 
+ * [PhysicsEngine::SetSeed](https://bitbucket.org/osrf/gazebo/src/577847c43d021f7edc838a30c0eafc99ea312571/gazebo/physics/PhysicsEngine.hh?at=default#cl-77): Set seed of engine random seed.
  * [PhysicsEngine::SetTargetRealTimeFactor](https://bitbucket.org/osrf/gazebo/src/577847c43d021f7edc838a30c0eafc99ea312571/gazebo/physics/PhysicsEngine.hh?at=default#cl-97)
  * GetGravity
  * ...
