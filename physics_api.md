@@ -28,6 +28,8 @@ TODO:
  * Repeat physics tests for plugin physics.
  * Create OpenPL repository
      * Define initial API
+* Example PAL / OPAL (http://sourceforge.net/p/pal/code/HEAD/tree/pal/pal_i/bullet/bullet_pal.cpp)
+* Look at OpenGL API
 
 ## High Level Description
 
