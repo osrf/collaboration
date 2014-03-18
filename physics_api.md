@@ -1,5 +1,18 @@
 # Existing Physics API
 
+## Discussion 2014-03-18
+Nate, Evan, Steve, John
+
+ * Nate: Simplify Load/Init into single Load or generalize multi-step loading process.
+ * Evan: It's difficult to map objects in one engine to gazebo's abstraction if the conceptial abstractions are different. Alternatively, the physics engine need to instantiate from SDF by itself.
+     * what about engines without SDF loaders?
+ * Evan: Force reference frames definition are unclear in Gazebo C++ API.
+ * Get list of "capabilities" for each physics engine.
+ * Do we allow users to change gravity at runtime?
+ * Do we allow users to change inertia at runtime?
+ * Stragegy: start simple.
+ * 
+
 ## High Level Description
 
 Current gazebo physics engine
@@ -9,8 +22,10 @@ Current gazebo physics engine
  * [PhysicsEngine::Load](https://bitbucket.org/osrf/gazebo/src/577847c43d021f7edc838a30c0eafc99ea312571/gazebo/physics/PhysicsEngine.hh?at=default#cl-54): This function loads physics engine description from SDF without initializing the engine itself.
  * [PhysicsEngine::Init](https://bitbucket.org/osrf/gazebo/src/577847c43d021f7edc838a30c0eafc99ea312571/gazebo/physics/PhysicsEngine.hh?at=default#cl-57): Initialize underlying physics engine.
  * [PhysicsEngine::Reset](https://bitbucket.org/osrf/gazebo/src/577847c43d021f7edc838a30c0eafc99ea312571/gazebo/physics/PhysicsEngine.hh?at=default#cl-63)
- * [PhysicsEngine::Fini](https://bitbucket.org/osrf/gazebo/src/577847c43d021f7edc838a30c0eafc99ea312571/gazebo/physics/PhysicsEngine.hh?at=default#cl-60)
- * [PhysicsEngine::InitForThread](https://bitbucket.org/osrf/gazebo/src/577847c43d021f7edc838a30c0eafc99ea312571/gazebo/physics/PhysicsEngine.hh?at=default#cl-66): Prepare physics engine for multi-threaded access.
+ * [PhysicsEngine::Fini](https://bitbucket.org/osrf/gazebo/src/577847c43d021f7edc838a30c0eafc99ea312571/gazebo/physics/PhysicsEngine.hh?at=default#cl-60): Multi-step shutdown behavior.
+ * [PhysicsEngine::InitForThread](https://bitbucket.org/osrf/gazebo/src/577847c43d021f7edc838a30c0eafc99ea312571/gazebo/physics/PhysicsEngine.hh?at=default#cl-66): Move this into Load or Init.  Prepare physics engine for multi-threaded access.
+
+### Below can happen anytime during simulation after Init. 
  * CreateModel
  * CreateLink
  * CreateCollision
