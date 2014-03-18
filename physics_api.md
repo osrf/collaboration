@@ -18,6 +18,8 @@ TODO:
 
  * Decide between generalized coordinate support vs. absolute coordinate support.
      * Steve: find a subset of exiting API that works with both.
+        * GetWorldPose, Joint::SetEffort are ok
+        * Link::SetLinearVel maybe not
  * Decide initial simulation scenarios:
      * box on plane
      * pendulum
