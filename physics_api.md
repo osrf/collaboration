@@ -31,34 +31,6 @@ Current gazebo physics engine
 
 
 # New Physics API
-
-## Open Issues
-
- * Should we allow the choice between single and double precision?
- * Rename Joint::SetAngle and Joint::GetAngle.  Change input param and return type from math::Angle to something that works with both sliders and hinge joints. Instead of Angle, it could be configuration, state, or position.
- * Rename Joint::SetForce to SetEffort.
- * Write tests for each API to indicate how we expect it to work.
- * Joint::SetVelocity is persistant but Joint::SetForce is not.  Consider renaming to Joint::SetForce(duration, start time) or creating Joint::SetImpulse.
- * Reference frames
-    * Consider attaching reference frames to state getters and setters (currently mostly world or "relative?" frame).
-    * Consider attaching Entity pointer to transforms (Pose, Vector3, Quaternion, Wrench) to specify a reference frame (as suggested by Jesper for Wrenches).
-    * What to do with Relative Get and Set API, currently it's not so intuitive.
- * Merging URDF and SDF 
-   * Packaging: merging urdfdom_headers, urdfdom, sdformat
-   * Merge URDF and SDF way of specifying kinematics.  URDF: tree, recursive hierarchy, SDF: graph, flat hierarchy.
-       * Define joints as **breakable**, ignore joint if needed.
-       * Define <graph> or <superlinks>, designating groups of links to be fused if needed.
-       * Use joint mimic to simplify graphs.  See for example the [JointMimic](https://github.com/ros/urdfdom_headers/blob/master/urdf_model/include/urdf_model/joint.h#L149) class.  This can be simulated GearBox joints.
- * Introduce **prescribed motion**.
- * Introduce motor controlled joints.
- * Different types of SetPose()
-   * Setting Gazebo Link state independent of physic engines (disregarding dynamics, constraints and joints).
-   * Set link pose/twist in Cartesian solver case, pose/twist are not transferred to child links if the desired velocity is in the null space of the constraint.
-   * Set link pose/twist in Internal coordinate system, pose/twist are propagated to child links as if they are welded.
- * Add an "AssemblySolver" (Sherm).  Both for prescribed link/joint constraints.
-   * For obtaining IK solutions.
-   * Using position teleport (split impulse).
- * Joint::SetMaxForce and Joint::GetMaxForce does not make sense in internal coordinate sovlers.
  
 ## [Entity.hh](https://bitbucket.org/osrf/gazebo/src/577847c43d021f7edc838a30c0eafc99ea312571/gazebo/physics/Entity.hh?at=default)
 
@@ -387,9 +359,9 @@ Current gazebo physics engine
 
 
       
-## Discussions
+## Discussions 2013
 
-### URDF Brainstorming
+### URDF Loops Brainstorming
 
 #### Steve
 
@@ -412,24 +384,32 @@ fallback strategies for putting graphs in a tree
 </urdf>
 ~~~
 
-#### John
+# Discussions 2014-03-18
 
-Just remembered a lot of times, graphs can be avoided by using mimic joints, or GearBox joints, and planners can usually deal with mimic, either with a ratio or through lookup tables.
+## Open Issues
 
-I like the name "superlink", it's a link, but it contains internal links and joints.  if internal joints are frozen, it's just another link, otherwise, it's a deformable body :)
-~~~
-<urdf>
-  <link/>
-  <joint/>
-  <link/>
-  <joint/>
-  <superlink>
-     <link/>
-     <joint/>
-     <link/>
-     <joint/>
-     <link/>
-     <mimic joint1, joint2/>
-  </superlink>
-</urdf>
-~~~
+ * Should we allow the choice between single and double precision?
+ * Rename Joint::SetAngle and Joint::GetAngle.  Change input param and return type from math::Angle to something that works with both sliders and hinge joints. Instead of Angle, it could be configuration, state, or position.
+ * Rename Joint::SetForce to SetEffort.
+ * Write tests for each API to indicate how we expect it to work.
+ * Joint::SetVelocity is persistant but Joint::SetForce is not.  Consider renaming to Joint::SetForce(duration, start time) or creating Joint::SetImpulse.
+ * Reference frames
+    * Consider attaching reference frames to state getters and setters (currently mostly world or "relative?" frame).
+    * Consider attaching Entity pointer to transforms (Pose, Vector3, Quaternion, Wrench) to specify a reference frame (as suggested by Jesper for Wrenches).
+    * What to do with Relative Get and Set API, currently it's not so intuitive.
+ * Merging URDF and SDF 
+   * Packaging: merging urdfdom_headers, urdfdom, sdformat
+   * Merge URDF and SDF way of specifying kinematics.  URDF: tree, recursive hierarchy, SDF: graph, flat hierarchy.
+       * Define joints as **breakable**, ignore joint if needed.
+       * Define <graph> or <superlinks>, designating groups of links to be fused if needed.
+       * Use joint mimic to simplify graphs.  See for example the [JointMimic](https://github.com/ros/urdfdom_headers/blob/master/urdf_model/include/urdf_model/joint.h#L149) class.  This can be simulated GearBox joints.
+ * Introduce **prescribed motion**.
+ * Introduce motor controlled joints.
+ * Different types of SetPose()
+   * Setting Gazebo Link state independent of physic engines (disregarding dynamics, constraints and joints).
+   * Set link pose/twist in Cartesian solver case, pose/twist are not transferred to child links if the desired velocity is in the null space of the constraint.
+   * Set link pose/twist in Internal coordinate system, pose/twist are propagated to child links as if they are welded.
+ * Add an "AssemblySolver" (Sherm).  Both for prescribed link/joint constraints.
+   * For obtaining IK solutions.
+   * Using position teleport (split impulse).
+ * Joint::SetMaxForce and Joint::GetMaxForce does not make sense in internal coordinate sovlers.
