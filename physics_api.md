@@ -29,7 +29,8 @@ Evan's notes:
     * get_simulator_forces(): uses BodyData consisting of the wrench applied to the floating base and actuator forces that were applied. Returns an approximation to the integral of the Coriolis, centrifugal, gravitational, contact, and frictional forces that were applied over the last time step.
     * g/set_gravity(): sets the gravity vector in the simulator
     * step(): steps the simulator forward by some time
- * 
+    * load(): loads or reloads the simulator via a SDF file
+    * save(): saves the simulator's to a SDF file
 
 TODO:
 
