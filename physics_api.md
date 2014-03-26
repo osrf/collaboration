@@ -13,13 +13,35 @@ Nate, Evan, Steve, John
  * Stragegy: start simple.  Keep existing integration intact and separate from new physics plugin system.
  * What if physics engines want to handle collision internally?  Simbody/DART/ODE/Bullet allows third party collision engine callbacks.  Moby would like to have total control over collision handling due to continuous collision detection capabilities.  This is needed to prevent interpenetration.  (Mirtich's approach).
  * Should Gazebo have it's own collision detection library.
- 
+
+Evan's notes:
+
+ * The minimum API necessary for simulators geared toward robotics applications (this should go for Moby, DART, and perhaps Simbody) will use a structure somewhat like:
+  struct BodyData
+  {
+    string id;
+    vector<pair<string, double> > values;
+  }
+
+    * g/set_generalized_coordinates(): uses BodyData consisting of floating base translation, floating base orientation (using Euler parameters), and joint positions (angles). Reference frame (global, link, link inertia) for floating base values must be specified in the API. 
+    * g/set_independent_velocities(): uses BodyData consisting of floating base linear velocity, floating base angular velocity, and joint velocities. Reference frame (global, link, link inertia) for floating base values must be specified. 
+    * get_independent_forces(): uses BodyData consisting of the wrench applied to the floating base and actuator forces to be applied. Coriolis/centrifugal/gravitational/contact/frictional forces are computed and applied by the simulator. Note: the simulator should ask for this data from Gazebo via a callback. Gazebo will return the forces.
+    * get_simulator_forces(): uses BodyData consisting of the wrench applied to the floating base and actuator forces that were applied. Returns an approximation to the integral of the Coriolis, centrifugal, gravitational, contact, and frictional forces that were applied over the last time step.
+    * g/set_gravity(): sets the gravity vector in the simulator
+    * step(): steps the simulator forward by some time
+ * 
+
 TODO:
 
  * Decide between generalized coordinate support vs. absolute coordinate support.
      * Steve: find a subset of exiting API that works with both.
         * GetWorldPose, Joint::SetEffort are ok
         * Link::SetLinearVel maybe not
+     * Absolute coordinates do not generally yield correct generalized 
+       coordinates due to constraint drift. Generalized coordinates do yield
+       correct absolute coordinates, but does require a little care: if Gazebo
+       defines a body with kinematic loops in an inconsistent configuration,
+       unexpected behavior will result.
  * Decide initial simulation scenarios:
      * box on plane
      * pendulum
@@ -421,7 +443,7 @@ fallback strategies for putting graphs in a tree
 
 ## Open Issues
 
- * Should we allow the choice between single and double precision?
+ * Should we allow the choice between single and double precision? (should justify that single precision is appreciably faster before doing so)
  * Rename Joint::SetAngle and Joint::GetAngle.  Change input param and return type from math::Angle to something that works with both sliders and hinge joints. Instead of Angle, it could be configuration, state, or position.
  * Rename Joint::SetForce to SetEffort.
  * Write tests for each API to indicate how we expect it to work.
