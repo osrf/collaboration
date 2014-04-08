@@ -18,11 +18,11 @@ Evan's notes:
 
  * The minimum API necessary for simulators geared toward robotics applications (this should go for Moby, DART, and perhaps Simbody) will use a structure somewhat like:
 
-    struct BodyData
-    {
-      string id;
-      vector<pair<string, double> > values;
-    }
+      struct BodyData
+      {
+        string id;
+        vector<pair<string, double> > values;
+      }
 
     * g/set_generalized_coordinates(): uses BodyData consisting of floating base translation, floating base orientation (using Euler parameters), and joint positions (angles). Reference frame (global, link, link inertia) for floating base values must be specified in the API. 
     * g/set_independent_velocities(): uses BodyData consisting of floating base linear velocity, floating base angular velocity, and joint velocities. Reference frame (global, link, link inertia) for floating base values must be specified. 
