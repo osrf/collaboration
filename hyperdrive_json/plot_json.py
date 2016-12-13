@@ -104,7 +104,7 @@ plt.ylabel('EVM_MSG (0-1)')
 plt.xlabel('Time (s)')
 
 plt.figure()
-ax6 = plt.subplot(2,2,1)
+ax6 = plt.subplot(2,2,1, sharex=ax1)
 plt.plot(time, engine_rpm, '-o')
 plt.ylabel('Engine Speed (RPM)')
 plt.xlabel('Time (s)')
